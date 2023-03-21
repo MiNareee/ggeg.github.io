@@ -14,11 +14,9 @@
 
        },
        init: function () {
-          let inter = new THREE.Vector3( );
-          inter.add(this.toPosition);
-          inter.multiplyScalar(0.7);
-          inter.y += 5;
-          inter.multiplyScalar(t*(1-t));
+          this.target = this.data.t1.object30;
+          this.toPosition = this.target.position;
+          this.e1.setAttribute('position’, currentPosition);
        },
 
        update: function(){
@@ -29,9 +27,16 @@
        },
 
        tick: function(time, timeDelta) { 
+         let inter = new THREE.Vector3( );
+          inter.add(this.toPosition);
+          inter.multiplyScalar(0.7);
+          inter.y += 5;
+          inter.multiplyScalar(t*(1-t));
         let t = Math.abs((time*0.001)%2-1);
         t=Math.min(t,0.98);
         t=Math.max(t,0.02);
+
+
 
        },
      });
