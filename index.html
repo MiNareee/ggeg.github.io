@@ -22,15 +22,16 @@
        },
 
        update: function(){
-         this.toPosition = this.target.position;
+         currentPosition = new THREE.Vector3()
+        currentPosition.add(this.toPosition);\
+        currentPosition.multiplyScalar(t*t)
+        currentPosition.add(inter);
        },
 
-       tick: function(time, timeDelta) {    
-          let inter = new THREE.Vector3( );
-          inter.add(this.toPosition);
-          inter.multiplyScalar(0.7);
-          inter.y += 5;
-          inter.multiplyScalar(t*(1-t));
+       tick: function(time, timeDelta) { 
+        let t = Math.abs((time*0.001)%2-1);
+        t=Math.min(t,0.98);
+        t=Math.max(t,0.02);
 
        },
      });
