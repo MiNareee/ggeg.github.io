@@ -14,7 +14,11 @@
 
        },
        init: function () {
-         <!--пропуски-->
+        currentPosition = new THREE.Vector3()
+        currentPosition.add(this.toPosition);
+        currentPosition.multiplyScalar(t*t)
+        currentPosition.add(inter);
+
        },
 
        update: function(){
